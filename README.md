@@ -1,4 +1,4 @@
-MetaSEC is a blockchain-based system for data transfer and storage.
+MetaSEC is a blockchain-based system for data transfer and storage using AWS + Hyperledger Fabric + Ethereum.
 
 [//]: # (SPDX-License-Identifier: CC-BY-4.0)
 
