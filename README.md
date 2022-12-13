@@ -1,5 +1,7 @@
 MetaSEC is a secure data transfer and storage solution for businesses and organizations. It utilizes a combination of blockchain technology, Amazon Web Services (AWS), Hyperledger Fabric, and Ethereum to ensure confidential and secure data transfer and storage.
 
+MetaSEC is designed to provide businesses and organizations with a secure and reliable way to transfer and store data. It is powered by a combination of blockchain technology, Amazon Web Services (AWS), Hyperledger Fabric, and Ethereum. The technology behind MetaSEC uses an innovative consensus algorithm that ensures reliable, confidential and secure data transfer and storage. It also includes a secure data management platform that provides users with a secure and efficient way to store and manage their data. Additionally, MetaSEC provides a secure and encrypted peer-to-peer network for data sharing and communication. The platform is highly secure, compliant with industry standards, and provides users with a secure and reliable way to store and transfer data. MetaSEC also includes advanced security measures such as multi-factor authentication, encryption, and digital signature technology to ensure the secure transfer and storage of data.
+
 [//]: # (SPDX-License-Identifier: CC-BY-4.0)
 
 # Hyperledger Fabric Samples
