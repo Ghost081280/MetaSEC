@@ -1,0 +1,51 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+OrdererOrgs:
+  - Name: orderer
+    Domain: o3.fit
+    Specs:
+      - Hostname: orderer
+
+PeerOrgs:
+  - Name: partya
+    Domain: partya.o3.fit
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: partyb
+    Domain: partyb.o3.fit
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: partyc
+    Domain: partyc.o3.fit
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: auditor
+    Domain: auditor.o3.fit
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: rrprovider
+    Domain: rrprovider.o3.fit
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1

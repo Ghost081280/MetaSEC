@@ -1,0 +1,25 @@
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.o3.fit --tls --cafile ${PWD}/organizations/ordererOrganizations/o3.fit/orderers/orderer.o3.fit/msp/tlscacerts/tlsca.o3.fit-cert.pem -C mychannel -n secured -c '{"function":"CreateAsset","Args":["asset1", "A new asset for Org1MSP"]}' --transient "{\"asset_properties\":\"$ASSET_PROPERTIES\"}"
+
+
+peer chaincode query -o o3.fit:7050 --ordererTLSHostnameOverride orderer.o3.fit --tls --cafile ${PWD}/organizations/ordererOrganizations/o3.fit/orderers/orderer.o3.fit/msp/tlscacerts/tlsca.o3.fit-cert.pem -C mychannel -n secured -c '{"function":"GetAssetPrivateProperties","Args":["asset1"]}'
+
+
+./network.sh up createChannel -c mychannel -ca -s couchdb
+
+./network.sh deployCC -ccn secured -ccp ../asset-transfer-secured-agreement/chaincode-go/ -ccl go
+
+
+
+export PATH=${PWD}/../bin:${PWD}:$PATH
+export FABRIC_CFG_PATH=$PWD/../config/
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID="omer4MSP"
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/omer4.o3.fit/users/admin@omer4.o3.fit/msp
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/omer4.o3.fit/peers/peer0.omer4.o3.fit/tls/ca.crt
+export CORE_PEER_ADDRESS=localhost:10221
+
+
+
+peer chaincode query -C mychannel -n secured -c '{"Args":["QueryAssets", "{\"selector\":{\"docType\":\"asset\",\"ownerOrg\":\"omerMSP\"}, \"use_index\":[\"/indexOwnerDoc\", \"indexOwner\"]}"]}'
+
+peer chaincode query -C mychannel -n secured -c '{"Args":["QueryAssets", "{\"selector\":{\"docType\":\"asset_properties\",\"ownerOrg\":\"omerMSP\"}}"]}'
